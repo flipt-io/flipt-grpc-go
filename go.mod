@@ -1,9 +1,9 @@
 module github.com/markphelps/flipt-grpc-go
 
-go 1.12
+go 1.13
 
 require (
-	github.com/golang/protobuf v1.3.1
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
-	google.golang.org/grpc v1.21.1
+	github.com/golang/protobuf v1.3.2
+	github.com/grpc-ecosystem/grpc-gateway v1.12.1
+	google.golang.org/grpc v1.24.0
 )
