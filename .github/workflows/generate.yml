@@ -37,3 +37,14 @@ jobs:
         run: |
           echo "--> generating Go client ..."
           protoc -I tmp/flipt/rpc/ tmp/flipt/rpc/flipt.proto --go_out=plugins=grpc:"."
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.1.2
+        with:
+          commit-message: Update GRPC client
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: generate-patch
+          title: 'Update GRPC client'
+          assignees: markphelps
+          reviewers: markphelps
