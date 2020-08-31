@@ -5,6 +5,8 @@ jobs:
   generate:
     name: 'Generate GRPC client'
     runs-on: ubuntu-latest
+    env:
+      FLIPT_PATH: tmp/flipt
 
     steps:
       - name: Install Protoc
@@ -36,7 +38,7 @@ jobs:
       - name: Generate Go client
         run: |
           echo "--> generating Go client ..."
-          protoc -I tmp/flipt/rpc/ tmp/flipt/rpc/flipt.proto --go_out=plugins=grpc:"."
+          protoc -I $FLIPT_PATH/rpc/ $FLIPT_PATH/rpc/flipt.proto --go_out=plugins=grpc:"."
           echo "--> tidying up ..."
           go mod tidy
 
