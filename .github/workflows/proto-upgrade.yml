@@ -1,10 +1,9 @@
 on:
   workflow_dispatch:
-
-inputs:
-  tag:
-    required: true
-    description: Flipt release version tag to generate
+    inputs:
+      tag:
+        description: Flipt release version tag to generate
+        required: true
 
 permissions:
   contents: write
