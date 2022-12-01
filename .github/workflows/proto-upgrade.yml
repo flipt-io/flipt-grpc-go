@@ -24,6 +24,8 @@ jobs:
 
       - name: Clone Flipt into sub-directory
         run: gh repo clone flipt-io/flipt
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Bootstrap Tools
         run: |
@@ -39,6 +41,8 @@ jobs:
         run: rm -rf ./flipt/
 
       - name: Prepare Branch
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git checkout -b "generate/${{ inputs.tag }}"
           git add .
