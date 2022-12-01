@@ -24,7 +24,7 @@ jobs:
           go-version: 1.19
 
       - name: Setup go-task/task
-        use: 'lagren/setup-task@v1'
+        uses: 'lagren/setup-task@v1'
 
       - name: Clone Flipt into sub-directory
         run: gh repo clone flipt-io/flipt
