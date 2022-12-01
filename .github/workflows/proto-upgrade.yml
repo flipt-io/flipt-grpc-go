@@ -1,0 +1,57 @@
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Flipt release version tag to generate
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: proto-upgrade
+jobs:
+  proto-upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - name: Clone Flipt into sub-directory
+        run: gh repo clone flipt-io/flipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Bootstrap Tools
+        run: |
+          pushd ./flipt
+          git checkout ${{ inputs.tag }}
+          ./script/bootstrap
+          popd
+
+      - name: Buf Generate
+        run: buf generate
+
+      - name: Remove Flipt
+        run: rm -rf ./flipt/
+
+      - name: Prepare Branch
+        env:
+          GIT_AUTHOR_NAME: flipt-bot
+          GIT_AUTHOR_EMAIL: dev@flipt.io
+          GIT_COMMITTER_NAME: flipt-bot
+          GIT_COMMITTER_EMAIL: dev@flipt.io
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git checkout -b "generate/${{ inputs.tag }}"
+          git add --all .
+          git commit -m "feat: updates to protobuf definitions for flipt ${{ inputs.tag }}"
+          git push origin "generate/${{ inputs.tag }}"
+          gh pr create --title "feat: updates to protobuf definitions for flipt ${{ inputs.tag }}" \
+            --body "Upgrading generated client to the protobuf definitions found in Flipt ${{ inputs.tag }}."
+
