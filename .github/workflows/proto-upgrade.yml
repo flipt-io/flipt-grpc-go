@@ -28,11 +28,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Bootstrap Tools
-        run: |
-          pushd ./flipt
-          git checkout ${{ inputs.tag }}
-          ./script/bootstrap
-          popd
+        uses: magefile/mage-action@v2
+        with:
+          version: latest
+          args: bootstrap
+          workdir: ./flipt
 
       - name: Buf Generate
         run: buf generate
@@ -54,4 +54,3 @@ jobs:
           git push origin "generate/${{ inputs.tag }}"
           gh pr create --title "feat: updates to protobuf definitions for flipt ${{ inputs.tag }}" \
             --body "Upgrading generated client to the protobuf definitions found in Flipt ${{ inputs.tag }}."
-
