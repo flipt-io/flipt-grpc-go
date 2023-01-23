@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.4.0](https://github.com/flipt-io/flipt-grpc-go/compare/v1.3.0...v1.4.0) (2023-01-23)
+
+
+### Features
+
+* **github:** add flipt tag driven protobuf generate action ([89958eb](https://github.com/flipt-io/flipt-grpc-go/commit/89958eba03ec3b12550f6195f5f320407962e54f))
+
+
+### Bug Fixes
+
+* **gh:** move inputs under workflow dispatch ([d541060](https://github.com/flipt-io/flipt-grpc-go/commit/d541060d4ca59a8165ad88efbb13024ba91e493b))
+* **gh:** pass token to gh operations ([63c63b9](https://github.com/flipt-io/flipt-grpc-go/commit/63c63b9ce4aa83cae4c439c7d5e3739c31a723a4))
+* **gh:** use explicit title and body when opening PR ([fa02dea](https://github.com/flipt-io/flipt-grpc-go/commit/fa02deacc8372d13da6b7bc618405eb74b26e385))
+* **github:** type in uses statement ([ff8c16d](https://github.com/flipt-io/flipt-grpc-go/commit/ff8c16db0bb1869d3a7d6f077df6e751abe39bca))
+
 ## [1.3.0](https://github.com/flipt-io/flipt-grpc-go/compare/v1.2.0...v1.3.0) (2022-11-17)
 
 
