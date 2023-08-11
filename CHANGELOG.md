@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/flipt-io/flipt-grpc-go/compare/v1.6.0...v1.7.0) (2023-08-11)
+
+
+### Features
+
+* updates to protobuf definitions for flipt main ([#45](https://github.com/flipt-io/flipt-grpc-go/issues/45)) ([4b0f1b9](https://github.com/flipt-io/flipt-grpc-go/commit/4b0f1b968e4f928eca6f163c7731b8e81a130dac))
+
 ## [1.6.0](https://github.com/flipt-io/flipt-grpc-go/compare/v1.5.0...v1.6.0) (2023-05-23)
 
 
