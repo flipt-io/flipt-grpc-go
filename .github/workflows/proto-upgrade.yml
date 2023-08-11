@@ -17,28 +17,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
+      - uses: bufbuild/buf-setup-action@v1.26.0
         with:
-          go-version: "1.20"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Clone Flipt into sub-directory
-        run: gh repo clone flipt-io/flipt
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Bootstrap Tools
-        uses: magefile/mage-action@v2
-        with:
-          version: latest
-          args: bootstrap
-          workdir: ./flipt
-
-      - name: Buf Generate
-        run: buf generate
-
-      - name: Remove Flipt
-        run: rm -rf ./flipt/
+      - name: Generate
+        run: |
+          buf generate buf.build/flipt-io/flipt
 
       - name: Prepare Branch
         env:
