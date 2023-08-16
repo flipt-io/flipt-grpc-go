@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.0](https://github.com/flipt-io/flipt-grpc-go/compare/v1.6.0...v1.7.0) (2023-08-16)
+
+
+### Features
+
+* updates to protobuf definitions for flipt main ([#45](https://github.com/flipt-io/flipt-grpc-go/issues/45)) ([4b0f1b9](https://github.com/flipt-io/flipt-grpc-go/commit/4b0f1b968e4f928eca6f163c7731b8e81a130dac))
+* updates to protobuf definitions for flipt v1.25.0 ([#50](https://github.com/flipt-io/flipt-grpc-go/issues/50)) ([8f769cc](https://github.com/flipt-io/flipt-grpc-go/commit/8f769cc358f7995db68b0dfb72fbaf28db5b6575))
+
+
+### Bug Fixes
+
+* **buf:** use the remote plugins for go and go-grpc ([#49](https://github.com/flipt-io/flipt-grpc-go/issues/49)) ([ef833d3](https://github.com/flipt-io/flipt-grpc-go/commit/ef833d352f0b23fd7a117ee56c41a54c061b51e3))
+
 ## [1.6.0](https://github.com/flipt-io/flipt-grpc-go/compare/v1.5.0...v1.6.0) (2023-05-23)
 
 
